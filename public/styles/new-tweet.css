@@ -1,0 +1,56 @@
+main p {
+  align-self: ceter;
+  
+  color: #545149;
+  background-color: cornsilk;
+  width: 90%;
+  padding: 1.5em;
+  flex-direction: column;
+}
+
+main form {
+  padding-top: 1em;
+  padding-left: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+  
+}
+
+textarea {
+  display: flex;
+  width: 95vw;
+  height: 2.5em;
+  outline: 0;
+  border-width: 0 0 5px;
+  border-color: #545149;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  font-size: large;
+  background-color: cornsilk;
+}
+
+textarea:focus {
+  border-color: #545149;
+}
+
+.tweet-text {
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.counter {
+  font-family: 'Bungee', sans-serif;
+  padding-right: 1.5em;
+}
+
+main div {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+main div button {
+  font-family: 'Bungee', sans-serif;
+  color: #FFFFFF;
+  background-color: #4056A1;
+}
