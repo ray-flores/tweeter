@@ -19,10 +19,100 @@ body {
   color: #545149;
   background-color: cornsilk;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.container2 {
+  margin: 1.2em;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #545149;
+  width: 94%;
+  background-color: cornsilk;
+}
+
+.container2:hover {
+  box-shadow: 4px 4px cornflowerblue;
+}
+
+article.container2 header {
+  background-color: cornsilk;
+  background-image: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #545149;
+  font-weight: normal;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75em;
+}
+
+span.tweet-header {
+  position: sticky;
+  padding-right: 61vw;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+article.container2 footer {
+  margin: 0;
+  padding: 1.3em;
+  display: flex;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  height: 120px; 
+}
+
+footer.tweets span {
+  font-size: initial;
+  position: absolute;
+  padding-top: 47px;
+}
+
+footer.tweets div {
+  padding-left: 35px;
+}
+
+footer.tweets p {
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 10px;
+  overflow-wrap: break-word;
+  border-bottom: 5px solid #545149;
+  
+}
+
+#iconic {
+  font-size: medium;
+  display: flex;
+  align-self: flex-end;
+  padding-left: 4px;
+}
+
+#iconic:hover {
+  color:red;
+}
+
+img.tweet-header {
+  padding-top: 0;
+}
+
+header#tweets span#AT b {
+  color: cornflowerblue;
+  display: flex;
+  align-self: flex-end;
+  right: 2em;
+}
+
+
+
+
 

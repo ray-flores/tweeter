@@ -18,13 +18,7 @@ $(document).ready(function() { //call jQuery with obj from request
     }
     
     $('.counter').text(limit);
-
-
   });
-
-  
-
-
 
   
 });
