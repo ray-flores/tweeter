@@ -50,41 +50,45 @@ article.container2 header {
   flex-direction: row;
   height: 100px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   padding: 0.75em;
 }
 
 span.tweet-header {
   position: sticky;
-  padding-right: 61vw;
+  padding-right: 45vw;
   padding-left: 15px;
   display: flex;
   flex-direction: row;
 }
 
 article.container2 footer {
-  margin: 0;
+  justify-content: space-between;
   padding: 1.3em;
   display: flex;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
-  height: 120px; 
+  height: fit-content;
+  flex-direction: inherit;
 }
 
 footer.tweets span {
   font-size: initial;
   position: absolute;
-  padding-top: 47px;
+  flex: auto;
+  padding-top: 60px;
 }
 
 footer.tweets div {
-  padding-left: 35px;
+  padding-left: 90%;
+  
 }
 
 footer.tweets p {
+  width: 95%;
   margin-top: 0;
   padding-top: 0;
-  padding-bottom: 10px;
+  padding-bottom: initial;
   overflow-wrap: break-word;
   border-bottom: 5px solid #545149;
   
@@ -92,9 +96,8 @@ footer.tweets p {
 
 #iconic {
   font-size: medium;
-  display: flex;
   align-self: flex-end;
-  padding-left: 4px;
+  flex-direction: row;
 }
 
 #iconic:hover {
@@ -104,6 +107,7 @@ footer.tweets p {
 img.tweet-header {
   padding-top: 0;
 }
+
 
 header#tweets span#AT b {
   color: cornflowerblue;

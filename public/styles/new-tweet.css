@@ -3,7 +3,6 @@ main p {
   color: #545149;
   background-color: cornsilk;
   width: 90%;
-  
   flex-direction: column;
 }
 
@@ -53,3 +52,20 @@ main div button {
   color: #FFFFFF;
   background-color: #4056A1;
 }
+
+#alerts1 {
+  display: none;
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  padding: 20px 30px;
+  color: red;
+}
+
+#alerts2 {
+  display: none;
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  padding: 20px 30px;
+  color: red;
+}
+
