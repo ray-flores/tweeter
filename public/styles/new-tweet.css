@@ -10,7 +10,6 @@ main form {
   padding-top: 1em;
   padding-left: 1em;
   font-family: 'Source Sans Pro', sans-serif;
-  
 }
 
 textarea {
@@ -89,4 +88,7 @@ main div button {
     float: left;
   }
 
+  textarea#tweet-text {
+    width: 45vw;
+  }
 }

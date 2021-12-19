@@ -4,56 +4,24 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function() { //call jQuery with obj from request
-  
-  //let tweetWords = $(this).val();
-  //function should return $tweet to the caller
-  //construct new element with $: const $tweet = $(`<article class="tweet">Hello world</article>`);
-
-
-  // const data = [
-  //   {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png"
-  //       ,
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   },
-  //   {
-  //     "user": {
-  //       "name": "Descartes",
-  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //       "handle": "@rd" },
-  //     "content": {
-  //       "text": "Je pense , donc je suis"
-  //     },
-  //     "created_at": 1461113959088
-  //   }
-  // ]
-
-  const escape = function (str) {
+$(document).ready(function() {
+  //protection against user text area input
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
+  //adds new tweets in reverse chronological order
   const renderTweets = function(tweetArr) {
-    $('.container2').remove(); //or empty() but this doesn't take away the element
+    $('.container2').remove();
     for (let tweeter of tweetArr) {
       const $tweet = createTweetElement(tweeter);
-      $('.container').after($tweet); //prepend or after 
+      $('section').after($tweet);
     }
-    
-  }
+  };
 
-  
-  const createTweetElement= function(tweetObj) {
-    const time = timeago.format(tweetObj.created_at); 
+  const createTweetElement = function(tweetObj) {
+    const time = timeago.format(tweetObj.created_at);
     const tweet = $(`
     <article class="container2">
         <header id="tweets">
@@ -73,74 +41,37 @@ $(document).ready(function() { //call jQuery with obj from request
       </article>
     `);
     return tweet;
-  }
-
-  //ERROR
-
-  // const errorBlank = $(`
-  //   <div class="alert alert-danger" role="alert">
-  //   The text field cannot be <strong> blank </strong>! Please write something.
-  //   </div>`
-  // )
-
-  // const errorBlank = $(`
-  //   <div class="alert alert-danger" role="alert">
-  //   The text is <strong> too long </strong>! Please write something.
-  //   </div>`
-  // )
-
-
-  //////
-  
+  };
 
   $('#button').on('click', function(event) {
-    event.preventDefault();
+    event.preventDefault(); //prevents browser page refresh
     let tweet = $('#tweet-text').val();
-    if (tweet === null || tweet === "") {
+    if (tweet === null || tweet === "") { //checks if text area is blank and returns error message
       $('#alerts1').hide();
       $('#alerts2').hide();
-      return $( "#alerts1" ).slideDown("slow");
-      //return $("#alerts1").slideUp("slow");
-      //return $("#alerts1").css("display", "inline");
-      //return alert("The text field cannot be blank. Please write something.");
-    } else if (tweet.length > 140) {
+      return $("#alerts1").slideDown("slow");
+    } else if (tweet.length > 140) { //checks if text is too long and returns error message
       $('#alerts1').hide();
       $('#alerts2').hide();
-      return $( "#alerts2" ).slideDown( "slow" );
-      //return $("#alerts2").css("display", "inline");
-      //return alert("This text is too long. Please shorten it.")
-    } else {
-      $('#alerts1').hide();
+      return $("#alerts2").slideDown("slow");
+    } else {  //clears error messages if text is valid
+      $('#alerts1').hide();   
       $('#alerts2').hide();
       $.ajax('/tweets', { method: 'POST', data: {text: tweet} })
-      .then(function (res) {
-        console.log('Success: ', res);
-        loadTweets();
-      });
+        .then(function(res) {
+          console.log('Success: ', res);
+          loadTweets();
+        });
     }
-    
-    
   });
-
-  
-  // $('#alerts1').hide();
 
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET', data: 'json'})
-      .then( function (res) {
-        renderTweets(res)
-        $("#counter").text("140");
+      .then(function(res) {
+        renderTweets(res);
+        $("#counter").text("140"); //resets form fields including character counter
         $("form").trigger("reset");
         $('.container2').replaceWith(renderTweets(res));
-      
-      })
-  }
-
-  //loadTweets();
-  //const serialData = $(tweet).serialize();
-    // let data = {};
-    // $("#tweet").serializeArray().map(d=> data[d.key]=d.value); //and inside ajax obj remove tweet:tweet and place data: data
-
-
-
+      });
+  };
 });
