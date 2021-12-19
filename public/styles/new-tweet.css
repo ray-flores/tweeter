@@ -69,3 +69,24 @@ main div button {
   color: red;
 }
 
+@media only screen and (min-width: 1024px) {
+  
+  main {
+    padding-top: 120px;
+    width: 50%;
+    height: fit-content;
+    float: right;
+  }
+
+  main.container {
+    width: 50%;
+    float: right;
+  }
+
+  header {
+    width: 50%;
+    height: 100vh;
+    float: left;
+  }
+
+}

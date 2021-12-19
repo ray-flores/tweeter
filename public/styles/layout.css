@@ -76,12 +76,13 @@ footer.tweets span {
   font-size: initial;
   position: absolute;
   flex: auto;
-  padding-top: 60px;
+  display: contents;
 }
 
 footer.tweets div {
   padding-left: 90%;
-  
+  display: flex;
+  justify-content: space-between;
 }
 
 footer.tweets p {
@@ -111,11 +112,24 @@ img.tweet-header {
 
 header#tweets span#AT b {
   color: cornflowerblue;
-  display: flex;
+  display: inline-flexbox;
   align-self: flex-end;
   right: 2em;
 }
 
+@media only screen and (min-width: 1024px) {
+  
+  .container2 {
+    float: left;
+    width: fit-content;
+  }
+
+  section.new-tweet {
+    width: 50%;
+    float: left;
+  }
+
+}
 
 
 

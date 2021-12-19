@@ -129,9 +129,10 @@ $(document).ready(function() { //call jQuery with obj from request
     $.ajax('/tweets', { method: 'GET', data: 'json'})
       .then( function (res) {
         renderTweets(res)
-        $(".counter").trigger("reset");
+        $("#counter").text("140");
         $("form").trigger("reset");
         $('.container2').replaceWith(renderTweets(res));
+      
       })
   }
 

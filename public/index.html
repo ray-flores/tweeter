@@ -60,12 +60,12 @@
         </p>
 
 
-        <form method="POST" action="/tweets/">
+        <form id="form" method="POST" action="/tweets/">
           <label for="tweet-text"><b>What are you humming about?</b></label>
           <textarea name="text" id="tweet-text"></textarea>
           <div>
             <button id="button" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <output id="counter" name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
