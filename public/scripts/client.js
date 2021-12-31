@@ -13,7 +13,7 @@ $(document).ready(function() {
   };
   //adds new tweets in reverse chronological order
   const renderTweets = function(tweetArr) {
-    $('.container2').remove();
+    // $('.container2').remove();
     for (let tweeter of tweetArr) {
       const $tweet = createTweetElement(tweeter);
       $('section').after($tweet);
@@ -74,4 +74,7 @@ $(document).ready(function() {
         $('.container2').replaceWith(renderTweets(res));
       });
   };
+
+  loadTweets(); //allows tweets to persist after page refresh
+  
 });
